@@ -36,5 +36,4 @@ return require('packer').startup(function(use)
     -- Editing Plugins
     use {'windwp/nvim-autopairs', event = 'InsertEnter', config = require('plug-config.autopairs')}
     use {'b3nj5m1n/kommentary', event = 'BufWinEnter'}
-
 end)
