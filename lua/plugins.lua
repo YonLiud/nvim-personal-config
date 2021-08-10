@@ -28,10 +28,13 @@ return require('packer').startup(function(use)
     use 'kyazdani42/nvim-web-devicons'
     use 'numToStr/FTerm.nvim'
     use 'folke/trouble.nvim'
-    use 'romgrk/barbar.nvim'
+    use {'romgrk/barbar.nvim', config = require('plug-config.barbar')}
 
     -- Colorscheme Plugins
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+
+    -- Completion/Lsp Plugins
+    use {'hrsh7th/nvim-compe', config = require('plug-config.compe'), event = 'InsertEnter'}
 
     -- Editing Plugins
     use {'windwp/nvim-autopairs', event = 'InsertEnter', config = require('plug-config.autopairs')}
