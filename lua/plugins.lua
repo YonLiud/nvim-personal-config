@@ -33,6 +33,10 @@ return require('packer').startup(function(use)
     -- Colorscheme Plugins
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
 
+    -- Telescope/Fuzzy Finder
+    use { 'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
+    cmd = 'Telescope', config = require('plug-config.telescope')}
+
     -- Completion/Lsp Plugins
     use {'hrsh7th/nvim-compe', config = require('plug-config.compe'), event = 'InsertEnter'}
 
