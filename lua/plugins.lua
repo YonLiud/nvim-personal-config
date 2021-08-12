@@ -26,16 +26,18 @@ return require('packer').startup(function(use)
     -- UI Plugins
     use 'kyazdani42/nvim-tree.lua'
     use 'kyazdani42/nvim-web-devicons'
-    use 'numToStr/FTerm.nvim'
+    -- use 'numToStr/FTerm.nvim'
     use 'folke/trouble.nvim'
+    use 'tjdevries/colorbuddy.vim'
+    use 'RishabhRD/nvim-rdark'
+    use {
+        'hoob3rt/lualine.nvim',
+        requires = {'kyazdani42/nvim-web-devicons', opt = true}, config = require('plug-config.lualine')
+    }
     use {'romgrk/barbar.nvim', config = require('plug-config.barbar')}
 
     -- Colorscheme Plugins
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
-
-    -- Telescope/Fuzzy Finder
-    use { 'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
-    cmd = 'Telescope', config = require('plug-config.telescope')}
 
     -- Completion/Lsp Plugins
     use {'hrsh7th/nvim-compe', config = require('plug-config.compe'), event = 'InsertEnter'}
@@ -43,4 +45,12 @@ return require('packer').startup(function(use)
     -- Editing Plugins
     use {'windwp/nvim-autopairs', event = 'InsertEnter', config = require('plug-config.autopairs')}
     use {'b3nj5m1n/kommentary', event = 'BufWinEnter'}
+
+
+    -- Terminal Plugins
+    use {'numToStr/FTerm.nvim', config = require('plug-config.FTerm')}
+
+    use {'neovim/nvim-lspconfig'}
+    use {'kabouzeid/nvim-lspinstall', config = require('plug-config.lspinstall')}
+
 end)
